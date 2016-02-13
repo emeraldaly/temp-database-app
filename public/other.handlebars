@@ -1,1 +1,27 @@
-  <h1> {{{body}}} </h1>
+  <h1> Temp App </h1>
+
+  <div>
+  {{#each data}}
+  <div>
+
+  <span>{{this.id}}{{this.note}}</span>
+
+  </div>
+
+  {{each}}
+
+  </div>
+
+  <form action ="/createHot" method="POST">
+  <button type="button" class="btn btn-danger" type="submit" name="Hot">Too Hot</button>
+  </form>
+
+  <form action ="/createCold" method="POST">
+  <button type="button" class="btn btn-primary" type="submit" name="Cold">Too Cold</button>
+  </form>
+
+  <form action ="/createRight" method="POST">
+  <button type="button" class="btn btn-success" type="submit" name="Right">Just Right</button>
+  </form>
+
+

@@ -15,19 +15,34 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'quick_notes_db'
+  database: 'temp_db'
 })
 
 app.get("/", function(req, res){
-  connection.query("SELECT * FROM quick_notes", function(err, data){
+  connection.query("SELECT * FROM feel_states", function(err, col){
     if (err) throw err;
+    console.log('The solution is: ', col);
 
-    res.render('index', {data});
+    res.render('index', {col});
   });
 });
 
-app.post("/create", function(req, res){
-  connection.query("INSERT INTO quick_notes (note) VALUES (?)", [req.body.note], function(err, result){
+app.post("/createHot", function(req, res){
+  connection.query("INSERT INTO feel_states (state) VALUES (?)", ['Too Hot'], function(err, result){
+    if (err) throw err;
+  });
+  res.redirect("/");
+})
+
+app.post("/createCold", function(req, res){
+  connection.query("INSERT INTO feel_states (state) VALUES (?)", ['Too Cold'], function(err, result){
+    if (err) throw err;
+  });
+  res.redirect("/");
+})
+
+app.post("/createRight", function(req, res){
+  connection.query("INSERT INTO feel_states (state) VALUES (?)", ['Just Right'], function(err, result){
     if (err) throw err;
   });
   res.redirect("/");
