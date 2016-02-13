@@ -1,10 +1,11 @@
   <h1> Temp App </h1>
+  <h3>Record how the room feels and when you felt it goldilocks style</h3>
 
   <div>
-  {{#each data}}
+  {{#each col}}
   <div>
 
-  <span>{{this.id}}{{this.note}}</span>
+  <span>{{this.id}}{{this.states}}{{this.date}}</span>
 
   </div>
 
@@ -13,15 +14,18 @@
   </div>
 
   <form action ="/createHot" method="POST">
-  <button type="button" class="btn btn-danger" type="submit" name="Hot">Too Hot</button>
+  <input input type="hidden" type="text"></br>
+  <button type="submit" class="btn btn-danger">Too Hot</button>
   </form>
 
   <form action ="/createCold" method="POST">
-  <button type="button" class="btn btn-primary" type="submit" name="Cold">Too Cold</button>
+  <input input type="hidden" type="text"></br>
+  <button type="submit" class="btn btn-info">Too Cold</button>
   </form>
 
   <form action ="/createRight" method="POST">
-  <button type="button" class="btn btn-success" type="submit" name="Right">Just Right</button>
+  <input input type="hidden" type="text"></br>
+  <button type="submit" class="btn btn-success">Just Right</button>
   </form>
 
 

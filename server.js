@@ -1,9 +1,6 @@
 var express = require('express');
 var app = express();
 var PORT = 3000;
-var bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({ extended: false }));
 
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -23,7 +20,7 @@ app.get("/", function(req, res){
     if (err) throw err;
     console.log('The solution is: ', col);
 
-    res.render('index', {col});
+    res.render('other', {col});
   });
 });
 
